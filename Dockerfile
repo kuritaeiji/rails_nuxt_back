@@ -24,8 +24,3 @@ COPY . /app
 
 RUN bundle config set path 'vendor/bundle'
 RUN bundle install
-
-# herokuのために追加
-# ENV RAILS_ENV=production
-# RUN bundle exec rails db:migrate RAILS_ENV=production
-# CMD [ "bundle", "exec", "puma", "-C", "config/puma.rb", "RAILS_ENV=production" ]
