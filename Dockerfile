@@ -20,6 +20,11 @@ COPY Gemfile.lock /app
 
 # herokuのために追加
 COPY . /app
+# ここまで
 
 RUN bundle config set path 'vendor/bundle'
 RUN bundle install
+
+# herokuのために追加
+RUN bundle exec rails db:migrate
+CMD [ "bundle", "exec", "puma", "-C", "config/puma.rb" ]
