@@ -15,6 +15,8 @@ ENV LANG=C.UTF-8 \
 
 WORKDIR /app
 
+RUN gem install bundler
+
 COPY Gemfile* /app/
 
 # herokuのために追加
