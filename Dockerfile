@@ -23,6 +23,3 @@ COPY . /app
 
 RUN bundle config set path 'vendor/bundle'
 RUN bundle install
-
-RUN bundle config set path 'vendor/bundle'
-RUN bundle install
