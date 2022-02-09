@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins(ENV['FRONT_DOMAIN']) || 'rails-nuxt-front.herokuapp.com:3000'
+    origins(ENV['FRONT_DOMAIN'] || 'rails-nuxt-front.herokuapp.com:3000')
 
     resource '*',
       headers: :any,
