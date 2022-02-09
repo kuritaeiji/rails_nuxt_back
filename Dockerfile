@@ -18,7 +18,7 @@ WORKDIR /app
 COPY Gemfile* /app/
 
 # herokuのために追加
-# COPY . /app
+COPY . /app
 
 RUN bundle config set path 'vendor/bundle'
 RUN bundle install
