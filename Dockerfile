@@ -22,5 +22,4 @@ COPY Gemfile.lock /app
 COPY . /app
 # ここまで
 
-RUN bundle config set path 'vendor/bundle'
 RUN bundle install
