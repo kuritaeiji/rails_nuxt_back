@@ -4,7 +4,6 @@ setup:
     RAILS_ENV: production
     RAILS_LOG_TO_STDOUT: enabled
     RAILS_SERVE_STATIC_FILES: enabled
-    FRONT_DOMAIN: rails-nuxt-front.herokuapp.com:3000
 build:
   docker:
     web: Dockerfile
