@@ -10,6 +10,12 @@ module UserAuth
       current_user || unauthorized_user
     end
 
+    def delete_cookie
+      return if cookies[token_access_key].blank?
+
+      cookies.delete(token_access_key)
+    end
+
     private
 
     def fetch_entity_from_token
@@ -19,7 +25,7 @@ module UserAuth
     end
 
     def token
-      token_from_request_headers || cookies[:token_access_key]
+      token_from_request_headers || cookies[token_access_key]
     end
 
     def token_from_request_headers
@@ -30,14 +36,8 @@ module UserAuth
       UserAuth.token_access_key
     end
 
-    def delete_cookie
-      return unless cookies[token_access_key].blank?
-
-      cookies.delete(token_access_key)
-    end
-
     def unauthorized_user
-      head(:unautorized) && delete_cookie
+      head(:unauthorized) && delete_cookie
     end
   end
 end
