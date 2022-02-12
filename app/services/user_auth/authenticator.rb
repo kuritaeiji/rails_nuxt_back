@@ -16,6 +16,10 @@ module UserAuth
       cookies.delete(token_access_key)
     end
 
+    def token_access_key
+      UserAuth.token_access_key
+    end
+
     private
 
     def fetch_entity_from_token
@@ -30,10 +34,6 @@ module UserAuth
 
     def token_from_request_headers
       request.headers['Authorization']&.split&.last
-    end
-
-    def token_access_key
-      UserAuth.token_access_key
     end
 
     def unauthorized_user

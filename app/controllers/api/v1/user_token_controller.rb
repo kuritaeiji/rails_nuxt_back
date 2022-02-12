@@ -1,10 +1,11 @@
 class Api::V1::UserTokenController < ApplicationController
   before_action(:delete_cookie)
-  before_action(:authentiacte, only: [:create])
+  before_action(:authenticate, only: [:create])
 
   # POST /login
   def create
     cookies[token_access_key] = cookie_token
+    binding.pry
     render(json: { exp: auth.payload[:exp], user: entity })
   end
 
@@ -32,8 +33,8 @@ class Api::V1::UserTokenController < ApplicationController
   def cookie_token
     {
       value: auth.token,
-      expires: Time.at(auth_token.payload[:exp]),
-      secure: Rails.environment.production?,
+      expires: Time.at(auth.payload[:exp]),
+      secure: Rails.env.production?,
       http_only: true
     }
   end
