@@ -76,6 +76,7 @@ GEM
     i18n (1.9.1)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.4)
+    jwt (2.3.0)
     kramdown (2.3.1)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -210,6 +211,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   byebug
+  jwt
   listen (~> 3.2)
   mysql2 (>= 0.4.4)
   pry-byebug (~> 3.9)
