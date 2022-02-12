@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include(UserAuth::Tokenizable)
   has_secure_password
   before_validation(:downcase_email)
 
