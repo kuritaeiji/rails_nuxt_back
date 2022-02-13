@@ -12,8 +12,6 @@ RSpec.describe 'Api::V1::UserToken', type: :request do
         Timecop.freeze(Time.now)
         post(path, params: params)
 
-        binding.pry
-
         cookie = cookies[UserAuth.token_access_key.to_s]
         expect(cookie.present?).to eq(true)
         expect(cookie['value']).to eq(user.to_token)
