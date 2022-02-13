@@ -5,7 +5,6 @@ class Api::V1::UserTokenController < ApplicationController
   # POST /login
   def create
     cookies[token_access_key] = cookie_token
-    binding.pry
     render(json: { exp: auth.payload[:exp], user: entity })
   end
 

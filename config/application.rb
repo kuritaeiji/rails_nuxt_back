@@ -33,6 +33,7 @@ module App
     config.active_record.default_timezone = :utc
     config.i18n.default_locale = :ja
     config.add_autoload_paths_to_load_path = false
+    config.middleware.use ActionDispatch::Cookies
 
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
