@@ -5,7 +5,7 @@ class Api::V1::UserTokenController < ApplicationController
   # POST /login
   def create
     cookies[token_access_key] = cookie_token
-    render(json: { exp: auth.payload[:exp], user: entity })
+    render(json: entity, root: 'user', adapter: :json, meta: { exp: auth.payload[:exp] })
   end
 
   # DELETE /logout

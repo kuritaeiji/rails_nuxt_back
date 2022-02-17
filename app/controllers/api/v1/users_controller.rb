@@ -3,6 +3,6 @@ class Api::V1::UsersController < ApplicationController
 
   # get /users/current_user
   def show
-    render(json: User.first)
+    render(json: current_user, root: 'user', adapter: :json)
   end
 end

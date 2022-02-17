@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
       post(:login, action: :create, controller: :user_token)
       delete(:logout, action: :destroy, controller: :user_token)
+
+      resources(:projects, only: :index)
     end
   end
 end
